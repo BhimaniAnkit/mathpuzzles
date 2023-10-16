@@ -92,9 +92,7 @@ class _puzzlesState extends State<puzzles> {
                       // Navigator.push(context, MaterialPageRoute(builder: (context) {
                       //   return second(index);
                       // },));
-                      setState(() {
-
-                      });
+                      setState(() {});
                     },
                     child: Container(
                       alignment: Alignment.center,

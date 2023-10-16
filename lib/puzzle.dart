@@ -1,8 +1,13 @@
+import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:gradient_borders/gradient_borders.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mathpuzzles/main.dart';
 import 'package:mathpuzzles/win_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 import 'Data.dart';
 
@@ -218,17 +223,22 @@ class _puzzleState extends State<puzzle> {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          borderRadius:
-                                          BorderRadius.circular(15),
+                                          // borderRadius:
+                                          // BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: TextField(
                                             controller: t1,
                                             decoration: InputDecoration(
-                                                border: OutlineInputBorder(
-                                                    borderRadius:
-                                                    BorderRadius.circular(
-                                                        15)))),
+                                              border: GradientOutlineInputBorder(
+                                                gradient: LinearGradient(colors: [Colors.orange,Colors.pink,Colors.purpleAccent]),
+                                                width: 3.0,
+                                              ),
+                                                // border: OutlineInputBorder(
+                                                //     borderRadius:
+                                                //     BorderRadius.circular(
+                                                //         15))
+                                            )),
                                       ),
                                     ),
                                   ),
@@ -297,18 +307,28 @@ class _puzzleState extends State<puzzle> {
                                             }
                                             t1.text = "";
                                           } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(SnackBar(
-                                                content:
-                                                Text("Wrong Ans!!")));
+                                            AnimatedSnackBar.rectangle(
+                                              "Not Success",
+                                              "Wrong Answer",
+                                              type: AnimatedSnackBarType.success,
+                                              brightness: Brightness.light,
+                                              mobileSnackBarPosition: MobileSnackBarPosition.bottom,
+                                            ).show(context);
+                                            t1.text = "";
+                                            // ScaffoldMessenger.of(context)
+                                            //     .showSnackBar(SnackBar(
+                                            //     content:
+                                            //     Text("Wrong Ans!!")));
                                           }
                                           widget.index1 = null;
                                           setState(() {});
                                         },
-                                        child: Text(
-                                          "SUBMIT",
-                                          style: TextStyle(color: Colors.white),
-                                        )),
+                                      child: GradientText("SUBMIT",style: TextStyle(fontSize: 25), colors: [Colors.blue,Colors.red,Colors.teal]),
+                                        // child: Text(
+                                        //   "SUBMIT",
+                                        //   style: TextStyle(color: Colors.white),
+                                        // )
+                                    ),
                                   )
                                 ],
                               ),
@@ -318,11 +338,17 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("1"),
-                                        child: Text("1"),
+                                        child: Text("1")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
-                                          MaterialStatePropertyAll(
-                                              Colors.grey),
+                                            MaterialStatePropertyAll(HexColor("999999")),
+                                          // MaterialStatePropertyAll(
+                                          //     Colors.grey),
                                         ),
                                       ),
                                     ),
@@ -330,11 +356,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("2"),
-                                        child: Text("2"),
+                                        child: Text("2")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -342,11 +373,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("3"),
-                                        child: Text("3"),
+                                        child: Text("3")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -354,11 +390,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("4"),
-                                        child: Text("4"),
+                                        child: Text("4")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -366,11 +407,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("5"),
-                                        child: Text("5"),
+                                        child: Text("5")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -378,11 +424,17 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("6"),
-                                        child: Text("6"),
+                                        child: Text("6",)
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
+                                            // .blurXY(),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -390,11 +442,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("7"),
-                                        child: Text("7"),
+                                        child: Text("7")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -402,11 +459,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("8"),
-                                        child: Text("8"),
+                                        child: Text("8")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -414,11 +476,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("9"),
-                                        child: Text("9"),
+                                        child: Text("9")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),
@@ -426,11 +493,16 @@ class _puzzleState extends State<puzzle> {
                                     Expanded(
                                       child: ElevatedButton(
                                         onPressed: () => fun("0"),
-                                        child: Text("0"),
+                                        child: Text("0")
+                                            .animate()
+                                            .fadeIn(duration: 600.ms)
+                                            .scale(delay: 300.ms)
+                                            .move(delay: 300.ms,duration: 600.ms)
+                                            .then(duration: 600.ms,delay: 300.ms,curve: Cubic(10.0, 10.0, 10.0, 10.0)),
                                         style: ButtonStyle(
                                           backgroundColor:
                                           MaterialStatePropertyAll(
-                                              Colors.grey),
+                                              HexColor("999999")),
                                         ),
                                       ),
                                     ),

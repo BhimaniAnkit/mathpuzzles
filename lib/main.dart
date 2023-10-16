@@ -19,7 +19,6 @@ void main() {
 class mathpuzzles extends StatefulWidget {
 
   int ? index;
-
   mathpuzzles([this.index]);
 
   static SharedPreferences ?prefs;
@@ -121,6 +120,7 @@ class _mathpuzzlesState extends State<mathpuzzles> {
                                 GestureDetector(
                                   onTapCancel: () {
                                     temp = false;
+                                    Duration(milliseconds: 500);
                                     setState(() {});
                                   },
                                   onTapUp: (details) {
